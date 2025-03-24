@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+    <title> OAG TURISMO S.M. </title>
+</head>
+<link rel="stylesheet" href="style.css">
+
+<body>
+    
+    <Header>
+        <nav class="navbar">
+            <ul>
+                <li><a href="index.html"> Inicio </a></li>
+                <li><a href="destinos.html">Destinos</a></li>
+                <li><a href="incluye.html">Incluye </a></li>
+                <li><a href="programacion.html">Agendate</a></li>
+                <li><a href="contactanos.html">Contactanos</a></li>
+            </ul>
+        </nav>
+    </Header>
+    <section class="contact">
+        <form action="" class="formulario">
+            <label for="nombre">Nombre</label>
+            <input type="text" name="nombre">
+            <label for="apellido">Apellido</label>
+            <input type="text" name="apellido">
+            <label for="telefono">Telefono</label>
+            <input type="phone" name="telefono">
+            <label for="email">Correo Electronico</label>
+            <input type="email" name="email">
+            <input type="button" value="Enviar">
+        </form>
+    </section>
+
+
+<footer>
+    <div class="footer">
+        <hr>
+        <p><center>&copy; 2024 Mi página Web, Todos los Derechos Reservados. </center>   		
+        </p>
+    </div>
+</footer>
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+      const form = document.querySelector('.formulario');
+      const nombreInput = form.querySelector('input[name="nombre"]');
+      const apellidoInput = form.querySelector('input[name="apellido"]');
+      const telefonoInput = form.querySelector('input[name="telefono"]');
+      const emailInput = form.querySelector('input[name="email"]');
+      const enviarButton = form.querySelector('input[type="button"]');
+    
+      enviarButton.addEventListener('click', function(event) {
+        let isValid = true;
+        let errorMessage = '';
+    
+        if (!nombreInput.value.trim()) {
+          isValid = false;
+          errorMessage += 'Por favor, ingrese su nombre.\n';
+          nombreInput.style.borderColor = 'red';
+        } else {
+          nombreInput.style.borderColor = '';
+        }
+    
+        if (!apellidoInput.value.trim()) {
+          isValid = false;
+          errorMessage += 'Por favor, ingrese su apellido.\n';
+          apellidoInput.style.borderColor = 'red';
+        } else {
+          apellidoInput.style.borderColor = '';
+        }
+    
+        if (!telefonoInput.value.trim()) {
+          isValid = false;
+          errorMessage += 'Por favor, ingrese su número de teléfono.\n';
+          telefonoInput.style.borderColor = 'red';
+        } else {
+          telefonoInput.style.borderColor = '';
+        }
+    
+        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        if (!emailInput.value.trim()) {
+          isValid = false;
+          errorMessage += 'Por favor, ingrese su correo electrónico.\n';
+          emailInput.style.borderColor = 'red';
+        } else if (!emailRegex.test(emailInput.value.trim())) {
+          isValid = false;
+          errorMessage += 'Por favor, ingrese un correo electrónico válido.\n';
+          emailInput.style.borderColor = 'red';
+        } else {
+          emailInput.style.borderColor = '';
+        }
+    
+        if (!isValid) {
+          alert(errorMessage);
+          event.preventDefault();
+        } else {
+          alert('Formulario enviado correctamente!');
+        }
+      });
+    });
+    </script>
+</body>
+</html>
